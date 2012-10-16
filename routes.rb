@@ -20,15 +20,18 @@ end
 
 get '/sms' do
 
-	content_type 'text/xml'
+	account_sid = 'ACb04b2db30c75145beaf4129d3baa1ef7'
+	auth_token  = 'a99cff08dc934045096f1d5b246b17ab'
 
-	response = Twilio::TwiML::Response.new do |r|
-	  r.Sms 'Thanks for Calling!',
-	  	:from => '3144507638',
-	  	:to   => '7062894115'
-	end
+	# set up a client to talk to the Twilio REST API
+	@client = Twilio::REST::Client.new account_sid, auth_token
 
-	response.text
+	# send an sms
+	@client.account.sms.messages.create(
+	  :from => '3144507638',
+	  :to   => '7062894115',
+	  :body => 'Thanks!'
+	)
 	
 end
 
