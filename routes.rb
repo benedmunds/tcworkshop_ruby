@@ -23,7 +23,9 @@ get '/sms' do
 	content_type 'text/xml'
 
 	response = Twilio::TwiML::Response.new do |r|
-	  r.Sms 'Thanks for Calling!'
+	  r.Sms 'Thanks for Calling!',
+	  	:from => '3144507638',
+	  	:to   => '7062894115'
 	end
 
 	response.text
