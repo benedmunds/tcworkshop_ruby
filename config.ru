@@ -1,2 +1,8 @@
-require './routes.rb'
-run Sinatra::Application
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
+
+require './routes'
+
+run TcWorkshop
