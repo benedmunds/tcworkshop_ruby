@@ -8,9 +8,10 @@ get '/enqueue' do
 
 	response = Twilio::TwiML::Response.new do |r|
 	  r.Enqueue 'radio-callin-queue', 
-	  	:waitUrl => '/wait', 
+	  	:waitUrl       => '/wait', 
 	  	:waitUrlMethod => 'GET',
-	  	:action => '/sms'
+	  	:action        => '/sms',
+	  	:method        => 'GET'
 	end
 
 	response.text
