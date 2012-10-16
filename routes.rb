@@ -8,7 +8,7 @@ get '/enqueue' do
 
 	response = Twilio::TwiML::Response.new do |r|
 	  r.Say 'You are being enqueued'
-	  r.Redirect "/wait"
+	  r.Enqueue 'radio-callin-queue', :waitUrl => '/wait', :waitUrlMethod => 'GET'
 	end
 
 	response.text
