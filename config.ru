@@ -1,2 +1,1 @@
-require 'routes'
-run Sinatra::Application
+require './routes'
